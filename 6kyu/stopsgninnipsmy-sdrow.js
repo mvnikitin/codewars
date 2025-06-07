@@ -12,7 +12,6 @@ function spinWords(string) {
   const result = [];
   phrase.forEach((word) => {
     if (word.length > 4) {
-      // console.log(word.split("").reverse().join(""));
       result.push(word.split("").reverse().join(""));
     } else {
       result.push(word);
@@ -21,5 +20,5 @@ function spinWords(string) {
   return result.join(" ");
 }
 
-str = "This is another test";
-console.log(spinWords(str));
+// str = "This is another test";
+// console.log(spinWords(str));
