@@ -9,7 +9,7 @@
 // "(( @"     =>  "))(("
 
 
-// my first version
+// my first solution
 // function duplicateEncode(word){
 //     let result = '';
 //     for (let i = 0; i < word.length; i++) {
