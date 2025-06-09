@@ -13,20 +13,32 @@
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
-function duplicateCount(text){
-    const frequency = (text.toLocaleLowerCase()).split('').reduce((acc, item) => {
-        acc[item] = (acc[item] || 0) + 1;
-        return acc;
-    }, {});
-    let count = 0;
-    for (const frequencyKey in frequency) {
-        if (frequency[frequencyKey] > 1) {
-            count++;
-        }
-    }
-    return count;
+// my first solution
+// function duplicateCount(text){
+//     const frequency = (text.toLocaleLowerCase()).split('').reduce((acc, item) => {
+//         acc[item] = (acc[item] || 0) + 1;
+//         return acc;
+//     }, {});
+//     let count = 0;
+//     for (const frequencyKey in frequency) {
+//         if (frequency[frequencyKey] > 1) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// refactored
+function duplicateCount(text) {
+    return text.toLocaleLowerCase().split('').filter((value, index, array) => {
+        // already appeared but not now && now is the last appear
+        return array.indexOf(value) !== index && array.lastIndexOf(value) === index;
+    }).length;
 }
 
-// console.log(duplicateCount(""));
+// const arr = [1, 2, 3, 3, 3]
+// console.log(arr.lastIndexOf(3))
+
+// console.log(duplicateCount("avcdea"));
 
 export {duplicateCount};

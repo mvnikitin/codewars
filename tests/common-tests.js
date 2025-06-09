@@ -18,6 +18,7 @@ describe("counting duplicates", () => {
     test("aA11", 2, duplicateCount)
     test("ABBA", 2, duplicateCount)
     test("", 0, duplicateCount)
+    test("abcc cdefccghijklc", 1, duplicateCount)
 })
 
 describe("multiplies of 3 or 5", function(){
