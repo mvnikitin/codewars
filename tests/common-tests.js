@@ -3,10 +3,18 @@ const {multipliesThreeFive} = require("../6kyu/multiplies-of3or5.js");
 const {duplicateCount} = require("../6kyu/counting-duplicates.js");
 const {count} = require("../6kyu/count-characters-in-your-string.js");
 const {arrayDiffRefactored} = require("../6kyu/array-diff");
+const {cakes} = require("../6kyu/pete-the-baker");
 
 function testStrict(n, expected, func) {
   it(`n=${n}`, () => {
     let actual = func(n);
+    assert.strictEqual(actual, expected);
+  });
+}
+
+function testStrictTwoArgs(n, m, expected, func) {
+  it(`n=${n}, m=${m}`, () => {
+    let actual = func(n, m);
     assert.strictEqual(actual, expected);
   });
 }
@@ -65,4 +73,9 @@ describe("array diff", function () {
   testDeepTwoArgs([1, 2, 2], [1], [2, 2], arrayDiffRefactored);
   testDeepTwoArgs([1, 2, 2], [], [1, 2, 2], arrayDiffRefactored);
   testDeepTwoArgs([1, 2, 3], [1, 2], [3], arrayDiffRefactored);
+});
+
+describe("pete the baker", function () {
+  testStrictTwoArgs({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}, 2, cakes)
+  testStrictTwoArgs({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}, 0, cakes)
 });
